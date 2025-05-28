@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  /* Dark theme colors */
+  --text-color: #edf3ff;
+  --subheading-color: #97a7ca;
+  --placeholder-color: #c3cdde;
+  --primary-color: #101623;
+  --secondary-color: #283045;
+  --secondary-hover-color: #333e58;
+  --scrollbar-color: #626a7f;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+body.light-theme {
+  /* Light theme colors */
+  --text-color-1: #090c13;
+  --subheading-color-1: #7b8cae;
+  --placeholder-color-1: #606982;
+  --primary-color-1: #f3f7ff;
+  --secondary-color-1: #dce6f9;
+  --secondary-hover-color-1: #d2ddf2;
+  --scrollbar-color-1: #a2aac2;
+}
+
+.container {
+  padding: 2.2rem 10rem 4rem;
+  position: relative;
+  /* border: 2px solid; */
+}
+
+.container:where(.app-header, .suggestions, .prompt-container .prompt-wrapper) {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 990px;
+  padding: 0 2rem;
+}
+
+.app-header {
+  margin-top: 4vh;
+}
+
+.heading {
+  font-size: 3rem;
+  background-image: linear-gradient(to right, #1d7efd, #8f6fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.sub-heading {
+  font-size: 2.6rem;
+  color: var(--subheading-color);
+  margin-top: -5px;
+}
+
+.suggestions {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+  margin-top: 9.5vh;
+}
+
+.suggestions .suggestions-item {
+  /* border: 2px solid red; */
+  width: 267px;
+  padding: 1.1rem 1rem;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: 0.3 ease;
+}
+
+.suggestions-item:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.text {
+  font-size: 1.1rem;
+}
+
+.suggestions .suggestions-item span {
+  /* border: 2px solid green; */
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: #1d7efd;
+  border-radius: 50%;
+  margin-top: 1.5rem;
+}
+
+.suggestions .suggestions-item:nth-child(2) .icon {
+  color: #28a745;
+}
+.suggestions .suggestions-item:nth-child(3) .icon {
+  color: #ffc107;
+}
+.suggestions .suggestions-item:nth-child(4) .icon {
+  color: #6f42c1;
+}
+
+.prompt-container {
+  padding: 0 10rem;
+  width: 100%;
+  /* border: 2px solid yellow; */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+.prompt-container :where(.prompt-wrapper, .prompt-form, .prompt-actions) {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 56px;
+}
+
+.prompt-wrapper {
+  /* border: 2px solid green; */
+  margin-bottom: 1rem;
+}
+
+.prompt-form {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-color);
+  border-radius: 200px;
+}
+
+.prompt-input {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding-left: 2rem;
+  color: var(--text-color);
+}
+
+.prompt-input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.prompt-wrapper #theme-toggle-btn,
+#delete-chat-btn {
+  width: 56px;
+  height: 100%;
+  border: none;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: var(--secondary-color);
+  color: var(--secondary-color-1);
+  cursor: pointer;
+}
+.prompt-actions {
+  margin-right: 0.5rem;
+}
+
+#send-prompt-btn,
+#add-file-btn {
+  border: none;
+  background-color: var(--secondary-color);
+  flex-shrink: 0;
+  width: 45px;
+  height: 80%;
+  border-radius: 50%;
+  color: var(--secondary-color-1);
+}
+
+#send-prompt-btn:hover,
+#add-file-btn:hover,
+#theme-toggle-btn:hover,
+#delete-chat-btn:hover {
+  background: var(--secondary-hover-color);
+  color: var(--primary-color);
+}
+
+#send-prompt-btn {
+  display: none;
+}
+
+.message {
+  text-align: center;
+}
