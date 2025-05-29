@@ -192,7 +192,6 @@ body.light-theme {
   cursor: pointer;
 }
 
-#send-prompt-btn:hover,
 #add-file-btn:hover,
 #theme-toggle-btn:hover,
 #delete-chat-btn:hover {
@@ -202,6 +201,14 @@ body.light-theme {
 
 #send-prompt-btn {
   display: none;
+  background-color: #1d7efd;
+}
+#send-prompt-btn:hover {
+  background-color: #1d7efdb3;
+}
+
+.prompt-input:valid ~ .prompt-actions #send-prompt-btn {
+  display: block;
 }
 
 .message {
@@ -213,29 +220,33 @@ body.light-theme {
   display: none;
 }
 
-.chats-container .message {
-  display: flex;
+.chats-container {
   /* border: 2px solid; */
-  gap: 11px;
-}
-
-.chats-container .message .message-text {
-  border: 2px solid green;
-  padding: 12px 16px;
-  /* word-wrap: break-word;
-  white-space: pre-line; */
-}
-
-.chats-container .user-message {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
 }
 
-.chats-container .user-message .message-text {
+.user-message {
+  /* border: 2px solid red; */
+  display: flex;
+  align-self: flex-end;
   background-color: var(--secondary-color);
-  max-width: 75%;
-  border: 2px solid yellow;
-  padding: 12px 16px;
-  border-radius: 13px 13px 3px 13px;
-  text-align: left;
+  width: 65%;
+  padding: 0.9rem 0.7rem;
+  border-radius: 13px 13px 5px 13px;
+}
+
+.bot-message {
+  /* border: 2px solid yellow; */
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  padding: 5px;
 }
