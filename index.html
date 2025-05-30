@@ -47,7 +47,7 @@
       </ul>
 
       <section class="chats-container">
-        <div class="message user-message">
+        <!-- <div class="message user-message">
           <p class="message-text">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde
             nemo,quis ipsum placeat
@@ -62,7 +62,7 @@
           <p class="message-text">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde nemo
           </p>
-        </div>
+        </div> -->
       </section>
 
       <!-- Prompt Input-->
@@ -71,6 +71,7 @@
           <form class="prompt-form">
             <input
               type="text"
+              name="prompt"
               placeholder="Ask Gemini"
               class="prompt-input"
               required
@@ -78,14 +79,14 @@
             <div class="prompt-actions">
               <button
                 id="add-file-btn"
-                type="button"
+                type="submit"
                 class="material-symbols-rounded"
               >
                 attach_file
               </button>
               <button
                 id="send-prompt-btn"
-                type="button"
+                type="submit"
                 class="material-symbols-rounded"
               >
                 arrow_upward
@@ -103,5 +104,6 @@
         <p class="message">Gemini can make mistakes, please double check it</p>
       </section>
     </main>
+    <script src="main.js"></script>
   </body>
 </html>
