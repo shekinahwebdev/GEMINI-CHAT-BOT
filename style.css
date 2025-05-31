@@ -35,20 +35,22 @@ body.light-theme {
   --secondary-color-1: #dce6f9;
   --secondary-hover-color-1: #d2ddf2;
   --scrollbar-color-1: #a2aac2;
+  background-color: var(--primary-color-1);
+  color: var(--text-color-1);
 }
 
 .container {
   padding: 2.2rem 10rem 4rem;
   position: relative;
-  /* border: 2px solid; */
+  border: 2px solid;
   overflow-y: auto;
   min-height: calc(100vh - 127px);
   scrollbar-color: var(--scrollbar-color) transparent;
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
   padding: 0; /* remove the padding here */
-  position: relative;
 }
 
 .container:where(.app-header, .suggestions, .prompt-container .prompt-wrapper) {
@@ -60,6 +62,9 @@ body.light-theme {
 
 .app-header {
   margin-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heading {
@@ -191,13 +196,55 @@ body.light-theme {
   margin-right: 0.5rem;
 }
 
+.prompt-form :where(.file-upload-wrapper, button, img) {
+  width: 45px;
+  height: 45px;
+  position: relative;
+}
+
+.prompt-wrapper .prompt-form .file-upload-wrapper :where(button, img) {
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+  display: none;
+}
+
+.prompt-form .file-upload-wrapper #add-file-btn,
+.prompt-form .file-upload-wrapper.active.img-attached img,
+.prompt-form .file-upload-wrapper.active.file-attached .file-icon,
+.prompt-form .file-upload-wrapper.active:hover #cancle-file-btn {
+  display: block;
+}
+.prompt-form .file-upload-wrapper.active #add-file-btn {
+  display: none;
+}
+
+.prompt-form :is(#cancle-file-btn:hover, #stop-response-btn:hover) {
+  color: #d65a29;
+}
+
+.prompt-form #stop-response-btn,
+body.bot-responding .prompt-form .file-upload-wrapper {
+  display: none;
+}
+body.bot-responding .prompt-form #stop-response-btn {
+  display: block;
+}
+
+.prompt-form .file-icon {
+  color: #1d7efd;
+}
+
 #send-prompt-btn,
-#add-file-btn {
+#add-file-btn,
+#cancle-file-btn,
+#stop-response-btn,
+.file-icon {
   border: none;
   background-color: var(--secondary-color);
   flex-shrink: 0;
   width: 45px;
-  height: 80%;
+  height: 45px;
   border-radius: 50%;
   color: var(--secondary-color-1);
   cursor: pointer;
@@ -205,7 +252,9 @@ body.light-theme {
 
 #add-file-btn:hover,
 #theme-toggle-btn:hover,
-#delete-chat-btn:hover {
+#delete-chat-btn:hover,
+#cancle-file-btn:hover,
+#stop-response-btn:hover {
   background: var(--secondary-hover-color);
   color: var(--primary-color);
 }
@@ -227,7 +276,7 @@ body.light-theme {
   /* border: 2px solid red; */
 }
 
-.container :is(.app-header, .suggestions) {
+.container.typing :is(.app-header, .suggestions) {
   display: none;
 }
 
@@ -240,8 +289,29 @@ body.light-theme {
   text-align: left;
 }
 
+.chats-container .user-message .img-attachment {
+  margin-top: -7px;
+  width: 50%;
+  border-radius: 13px 3px 13px 13px;
+}
+
+.chats-container .user-message .file-attachment {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px;
+  margin-top: -7px;
+  border-radius: 13px 3px 13px 13px;
+  background: var(--secondary-color);
+}
+
+.chats-container .user-message .file-attachment span {
+  color: #1d7efd;
+}
+
 .chats-container {
   /* border: 2px solid; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -249,16 +319,24 @@ body.light-theme {
   padding: 2rem 10rem;
   margin-bottom: 120px; /* space for the prompt */
   scrollbar-color: var(--scrollbar-color) transparent;
+  max-height: 100vh;
+}
+
+.user-message .message-text {
+  background-color: var(--secondary-color);
+  padding: 0.6rem 0.6rem;
+  border-radius: 13px 13px 5px 13px;
+  color: white;
+  margin-bottom: 10px;
+  /* border: 2px solid yellow; */
 }
 
 .user-message {
-  /* border: 2px solid red; */
   display: flex;
   align-self: flex-end;
-  background-color: var(--secondary-color);
+  flex-direction: column;
+  align-items: flex-end;
   max-width: 65%;
-  padding: 0.9rem 0.7rem;
-  border-radius: 13px 13px 5px 13px;
   width: fit-content;
   word-wrap: break-word;
 }
@@ -267,8 +345,8 @@ body.light-theme {
   display: flex;
   gap: 1rem;
   align-self: flex-start;
-  max-width: 75%;
-  /* border: 2px solid yellow; */
+  max-width: 100%;
+  /* border: 1px solid; */
 }
 
 .bot-message .message-text {
@@ -285,6 +363,7 @@ body.light-theme {
   background-color: var(--secondary-color);
   border-radius: 50%;
   padding: 5px;
+  /* border: 2px solid; */
 }
 
 .prompt-container .message {

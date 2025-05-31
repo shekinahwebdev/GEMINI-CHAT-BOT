@@ -77,12 +77,42 @@
               required
             />
             <div class="prompt-actions">
+              <!-- Image Upload -->
+              <div class="file-upload-wrapper">
+                <img src="#" alt="image" class="file-preview" />
+                <input
+                  type="file"
+                  accept="image/*, .pdf, .txt, .csv, .jpg"
+                  id="file-input"
+                  hidden
+                />
+                <button
+                  id="add-file-btn"
+                  type="submit"
+                  class="material-symbols-rounded"
+                >
+                  attach_file
+                </button>
+                <button
+                  type="button"
+                  class="file-icon material-symbols-rounded"
+                >
+                  description
+                </button>
+                <button
+                  id="cancle-file-btn"
+                  type="submit"
+                  class="material-symbols-rounded"
+                >
+                  close
+                </button>
+              </div>
               <button
-                id="add-file-btn"
-                type="submit"
+                id="stop-response-btn"
+                type="button"
                 class="material-symbols-rounded"
               >
-                attach_file
+                stop_circle
               </button>
               <button
                 id="send-prompt-btn"
