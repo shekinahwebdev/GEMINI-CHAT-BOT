@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.querySelector("#theme-toggle-btn");
 
   // Generating bot response
-  const API_KEY = "AIzaSyC0DvQ96VGYI1_0r7NYfHSoBBXQI8mu2-4";
-  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+  //   const API_KEY = process.env.API_KEY;
+  //   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
   const chatHistory = [];
   const userData = { message: "", file: {} };
   let controller, typingInterval;
